@@ -99,34 +99,11 @@ const Electronic = () => {
                       <div className="down-content">
                         <h4>{product.title}</h4>
                         <span>${product.price}</span>
-                        {/* <ul className="stars">
-                              <li>
-                                <i className="fa fa-star" />
-                              </li>
-                              <li>
-                                <i className="fa fa-star" />
-                              </li>
-                              <li>
-                                <i className="fa fa-star" />
-                              </li>
-                              <li>
-                                <i className="fa fa-star" />
-                              </li>
-                              <li>
-                                <i className="fa fa-star" />
-                              </li>
-                            </ul> */}
                       </div>
                     </div>
                   );
                 })}
               </OwlCarousel>
-              {/* <div className="electronic-item-carousel">
-                
-                <div className="owl-electronic-item ">
-                  
-                </div> 
-              </div> */}
             </div>
           </div>
         </div>

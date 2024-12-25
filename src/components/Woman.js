@@ -99,23 +99,6 @@ const Woman = () => {
                           <div className="down-content">
                             <h4>{product.title}</h4>
                             <span>${product.price}</span>
-                            {/* <ul className="stars">
-                              <li>
-                                <i className="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i className="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i className="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i className="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i className="fa fa-star"></i>
-                              </li>
-                            </ul> */}
                           </div>
                         </div>
                       );
