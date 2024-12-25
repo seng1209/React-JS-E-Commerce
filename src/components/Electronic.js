@@ -3,6 +3,16 @@ import axios from "axios";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 import { useCart } from "../context/CartContext";
 
@@ -48,62 +58,52 @@ const Electronic = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <OwlCarousel
-                className="owl-theme"
-                items={5}
-                dots={true}
-                loop={true}
-                nav={true}
-                margin={30}
-                responsive={{
-                  0: {
-                    items: 1,
-                  },
-                  600: {
-                    items: 2,
-                  },
-                  1000: {
-                    items: 3,
-                  },
-                }}
+              <Swiper
+                // install Swiper modules
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={3}
+                navigation
               >
                 {products.map((product, index) => {
                   return (
-                    <div className="item" key={index}>
-                      <div className="thumb">
-                        <div className="hover-content">
-                          <ul>
-                            <li>
-                              <a href={`/purchase?id=${product.id}`}>
-                                <i className="fa fa-eye" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href={`/purchase?id=${product.id}`}>
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a onClick={() => addToCart(product)}>
-                                <i className="fa fa-shopping-cart" />
-                              </a>
-                            </li>
-                          </ul>
+                    <SwiperSlide>
+                      <div className="item" key={index}>
+                        <div className="thumb">
+                          <div className="hover-content">
+                            <ul>
+                              <li>
+                                <a href={`/purchase?id=${product.id}`}>
+                                  <i className="fa fa-eye" />
+                                </a>
+                              </li>
+                              <li>
+                                <a href={`/purchase?id=${product.id}`}>
+                                  <i className="fa fa-star" />
+                                </a>
+                              </li>
+                              <li>
+                                <a onClick={() => addToCart(product)}>
+                                  <i className="fa fa-shopping-cart" />
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                          <img
+                            src={product.image}
+                            alt=""
+                            style={{ width: "100%", height: "400px" }}
+                          />
                         </div>
-                        <img
-                          src={product.image}
-                          alt=""
-                          style={{ width: "100%", height: "400px" }}
-                        />
+                        <div className="down-content">
+                          <h4>{product.title}</h4>
+                          <span>${product.price}</span>
+                        </div>
                       </div>
-                      <div className="down-content">
-                        <h4>{product.title}</h4>
-                        <span>${product.price}</span>
-                      </div>
-                    </div>
+                    </SwiperSlide>
                   );
                 })}
-              </OwlCarousel>
+              </Swiper>
             </div>
           </div>
         </div>
